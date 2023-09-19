@@ -8,6 +8,16 @@ Upon startup app parses cli arguments in order to determine cisco config-file lo
 
 *Supported device types*: IOS/IOS-XE/IOS-XR/NXOS
 
+Currently, the following interface values are parsed:
+- name
+- description
+- ip address
+- ip subnet
+- vrf
+- mtu
+- input ACL
+- output ACL
+
 CLI flags description is below:
 
 
@@ -27,11 +37,22 @@ In this case we will get the .csv file name "ciscoConfig.csv" in current working
 
 ___
 ## Output data format
-
+Let's suppose, we have interface config as follow:
+```
+!
+interface GigabitEthernet0/0/2
+ description TUNNEL-SOURCE_INET
+ ip vrf forwarding INET
+ ip address 1.2.3.4 255.255.255.224
+ no ip redirects
+ no ip proxy-arp
+ ip access-group FROM_INET_IPSEC in
+ negotiation auto
+!
+```
 Output file example is below:
 ```
 Name,Description,Ip_addr,Subnet,Vrf,Mtu,ACLin,ACLout
-Bundle-Ether10,BGP-PEERING,1.2.3.4/28,1.2.3.0/28,,,,
-MgmtEth0/RSP0/CPU0/0,,10.0.0.1/24,10.0.0.0/24,management,,,
+GigabitEthernet0/0/2,TUNNEL-SOURCE_INET,1.2.3.4/27,1.2.3.0/27,INET,,FROM_INET_IPSEC,
 ```
 
