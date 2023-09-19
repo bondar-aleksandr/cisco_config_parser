@@ -50,7 +50,7 @@ interface GigabitEthernet0/0/2
  negotiation auto
 !
 ```
-Output file example is below:
+Output file in this case will look like:
 ```
 Name,Description,Ip_addr,Subnet,Vrf,Mtu,ACLin,ACLout
 GigabitEthernet0/0/2,TUNNEL-SOURCE_INET,1.2.3.4/27,1.2.3.0/27,INET,,FROM_INET_IPSEC,
