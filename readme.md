@@ -1,6 +1,6 @@
 # Cisco config parser CLI
 
-This app is a CLI version of [https://github.com/bondar-aleksandr/cisco_parser](https://https://github.com/bondar-aleksandr/cisco_parser)
+This app is a CLI version of [https://github.com/bondar-aleksandr/cisco_parser](https://github.com/bondar-aleksandr/cisco_parser)
 ___
 ## Usage
 
