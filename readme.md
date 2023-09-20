@@ -11,6 +11,7 @@ Upon startup app parses cli arguments in order to determine cisco config-file lo
 Currently, the following interface values are parsed:
 - name
 - description
+- encapsulation
 - ip address
 - ip subnet
 - vrf
@@ -40,7 +41,8 @@ ___
 Let's suppose, we have interface config as follow:
 ```
 !
-interface GigabitEthernet0/0/2
+interface GigabitEthernet0/0/2.2
+ encapsulation dot1Q 2
  description TUNNEL-SOURCE_INET
  ip vrf forwarding INET
  ip address 1.2.3.4 255.255.255.224
@@ -52,7 +54,7 @@ interface GigabitEthernet0/0/2
 ```
 Output file in this case will look like:
 ```
-Name,Description,Ip_addr,Subnet,Vrf,Mtu,ACLin,ACLout
-GigabitEthernet0/0/2,TUNNEL-SOURCE_INET,1.2.3.4/27,1.2.3.0/27,INET,,FROM_INET_IPSEC,
+Name,Description,Encapsulation,Ip_addr,Subnet,Vrf,Mtu,ACLin,ACLout
+GigabitEthernet0/0/2,TUNNEL-SOURCE_INET,dot1q 2,1.2.3.4/27,1.2.3.0/27,INET,,FROM_INET_IPSEC,
 ```
 
